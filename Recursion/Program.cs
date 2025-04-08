@@ -9,9 +9,38 @@
 
             //Console.WriteLine(Staircase(5));
 
-            Console.WriteLine(ArraySum(new int[] { 12, 24, 36 }, 0));
+            int[] testArray = new int[] { 12, 24, 36 };
+
+            Console.WriteLine(ArraySum(testArray, 0));
+            Console.WriteLine(CountItems(testArray));
+            Console.WriteLine(MaximumNumber(testArray));
         }
 
+
+        static int MaximumNumber(int[] array)
+        {
+            int first = array[0];
+
+            if (array.Length == 0) return 0;
+            if (array.Length == 1) return first;
+            if (array.Length == 2) return first > array[1] ? first : array[1];
+
+            int[] rest = new int[array.Length - 1];
+            Array.Copy(array, 1, rest, 0, rest.Length);
+
+            int maxOfRest = MaximumNumber(rest);
+
+            return first > maxOfRest ? first : maxOfRest;
+        }
+        static int CountItems(int[] array)
+        {
+            if (array.Length == 0) return 0;
+
+            int[] rest = new int[array.Length - 1];
+            Array.Copy(array, 1, rest, 0, rest.Length);
+
+            return 1 + CountItems(rest);
+        }
         static int ArraySum(int[] array, int index)
         {
             if (array.Length == index) return 0;                // base case
