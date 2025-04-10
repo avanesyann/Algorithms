@@ -10,6 +10,8 @@
             Console.WriteLine(BinarySearch(list, 8));
             Console.WriteLine(BinarySearch(list, 2));
             Console.WriteLine(BinarySearchRecursive(list, 16, 0, list.Length - 1));
+            Console.WriteLine(BinarySearchRecursive(list, 6, 0, list.Length - 1));
+            Console.WriteLine(BinarySearchRecursive(list, 4, 0, list.Length - 1));
         }
 
 
